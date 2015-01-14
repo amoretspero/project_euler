@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{4925A630-B079-445d-BCD4-3A9C94FE9307}") = "prob1.fs", "prob1.fs.fsproj", "{285A3DE7-BC2F-4F09-BA41-F87A9804D12B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{285A3DE7-BC2F-4F09-BA41-F87A9804D12B}.Debug|x86.ActiveCfg = Debug|x86
+		{285A3DE7-BC2F-4F09-BA41-F87A9804D12B}.Debug|x86.Build.0 = Debug|x86
+		{285A3DE7-BC2F-4F09-BA41-F87A9804D12B}.Release|x86.ActiveCfg = Release|x86
+		{285A3DE7-BC2F-4F09-BA41-F87A9804D12B}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = prob1.fs.fsproj
+	EndGlobalSection
+EndGlobal
