@@ -1,0 +1,5 @@
+/home/amoretspero/Documents/project_euler/prob14/obj/x86/Debug/.NETFramework,Version=v4.0.AssemblyAttribute.fs
+/home/amoretspero/Documents/project_euler/prob14/bin/Debug/prob14.exe.mdb
+/home/amoretspero/Documents/project_euler/prob14/bin/Debug/prob14.exe
+/home/amoretspero/Documents/project_euler/prob14/obj/x86/Debug/prob14.exe
+/home/amoretspero/Documents/project_euler/prob14/obj/x86/Debug/prob14.exe.mdb

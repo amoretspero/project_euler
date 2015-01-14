@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "prob15", "prob15.fsproj", "{DEB44520-5A33-4EDA-8515-295F72C1C6FB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DEB44520-5A33-4EDA-8515-295F72C1C6FB}.Debug|x86.ActiveCfg = Debug|x86
+		{DEB44520-5A33-4EDA-8515-295F72C1C6FB}.Debug|x86.Build.0 = Debug|x86
+		{DEB44520-5A33-4EDA-8515-295F72C1C6FB}.Release|x86.ActiveCfg = Release|x86
+		{DEB44520-5A33-4EDA-8515-295F72C1C6FB}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = prob15.fsproj
+	EndGlobalSection
+EndGlobal
