@@ -1,0 +1,5 @@
+/home/amoretspero/prob16/obj/x86/Debug/.NETFramework,Version=v4.0.AssemblyAttribute.fs
+/home/amoretspero/prob16/bin/Debug/prob16.exe.mdb
+/home/amoretspero/prob16/bin/Debug/prob16.exe
+/home/amoretspero/prob16/obj/x86/Debug/prob16.exe
+/home/amoretspero/prob16/obj/x86/Debug/prob16.exe.mdb
