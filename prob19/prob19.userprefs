@@ -3,8 +3,23 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="prob19.fs">
     <Files>
       <File FileName="Program.fs" Line="1" Column="1" />
-      <File FileName="prob19.fs" Line="5" Column="5" />
+      <File FileName="prob19.fs" Line="164" Column="36" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="prob19" expanded="True">
+            <Node name="prob19.fs" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
