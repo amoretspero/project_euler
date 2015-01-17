@@ -1,0 +1,13 @@
+﻿<Properties StartupItem="prob21.fsproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="prob21.fs">
+    <Files>
+      <File FileName="Program.fs" Line="1" Column="1" />
+      <File FileName="prob21.fs" Line="44" Column="44" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
