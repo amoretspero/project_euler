@@ -1,0 +1,10 @@
+D:\Visual Studio 2012\PROJECTS\prob23\prob23\bin\Debug\prob23.exe.config
+D:\Visual Studio 2012\PROJECTS\prob23\prob23\bin\Debug\prob23.XML
+D:\Visual Studio 2012\PROJECTS\prob23\prob23\bin\Debug\prob23.exe
+D:\Visual Studio 2012\PROJECTS\prob23\prob23\bin\Debug\prob23.pdb
+D:\Visual Studio 2012\PROJECTS\prob23\prob23\bin\Debug\FSharp.Core.dll
+D:\Visual Studio 2012\PROJECTS\prob23\prob23\bin\Debug\FSharp.Core.xml
+D:\Visual Studio 2012\PROJECTS\prob23\prob23\bin\Debug\ko\FSharp.Core.resources.dll
+D:\Visual Studio 2012\PROJECTS\prob23\prob23\obj\Debug\prob23.fsprojResolveAssemblyReference.cache
+D:\Visual Studio 2012\PROJECTS\prob23\prob23\obj\Debug\prob23.exe
+D:\Visual Studio 2012\PROJECTS\prob23\prob23\obj\Debug\prob23.pdb

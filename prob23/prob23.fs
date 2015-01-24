@@ -108,17 +108,60 @@ let lst7 = ref []
 let lst8 = ref []
 let lst9 = ref []
 
+exception INVALID_INPUT
+
+let empty_set = new Set<int>(Seq.empty)
+
+let test_hash = new System.Collections.Generic.HashSet<int>()
+
+
+let lst_dict = List.ofArray(dict_abundant_1.Keys.ToArray())
+printfn "ToList done!"
+let lst_temp = ref ([] : int list)
+let rec func_test (lst : int list) = 
+    match lst with
+    | [] -> raise INVALID_INPUT
+    | [ elem ] -> lst_temp := (!lst_temp)
+    | h::t ->
+        let mutable counter = 0
+        printfn "lst length : %d" lst.Length
+        while (counter<t.Length)&&(t.[counter]<(28123-h)) do
+            let temp = h+t.[counter]
+            if (!lst_temp).Contains(temp) then lst_temp:=temp::(!lst_temp)
+        (func_test t)
+        
+let rec hash_op (ht : HashSet<int>) (lst : int list) =
+    for i=0 to lst.Length-1 do
+        for j=i to lst.Length-1 do
+            ht.Add(lst.[i]+lst.[j]) |> ignore
+        printfn "i : %d" i
+        
+let rec set_op (i : int) (j : int) (lst : int list) (s : Set<int>) =
+    match i with
+    _ when i < lst.Length-1 -> 
+        (set_op (i+1) j lst (s.Add(lst.[i]+lst.[j])))
+    | _ when (i = lst.Length-1)&&(j < lst.Length-1) -> 
+        printfn "current j : %d" j
+        (set_op (j+1) (j+1) lst (s.Add(lst.[i]+lst.[j])))
+    | _ when (i = lst.Length-1)&&(j = lst.Length-1) ->
+        printfn "Done!"
+        s.Add(lst.[i]+lst.[j])
+    | _ -> raise INVALID_INPUT
+    
+    
+
 let thread1 (dict : Dictionary<int, int>) = new Thread (fun () ->
     let sum_1 = ref []
     for i=0 to 800 do
         for j=i to 6964 do
             let sum = (((dict.ElementAt(i)).Key)+((dict.ElementAt(j)).Key))
             if sum <= 28123 then sum_1 := sum::(!sum_1)
+        printfn "i : %d" i
     sum_1 := lst_distinct(!sum_1)
     lst1 := !sum_1
-    for elem in (!sum_1) do
-        res_1 <- res_1 + int64(elem)
-        File.AppendAllText("t1.txt", (elem.ToString())+"\n")
+    //for elem in (!sum_1) do
+    //    res_1 <- res_1 + int64(elem)
+    //    File.AppendAllText("t1.txt", (elem.ToString())+"\n")
     printfn "Thread1 Finished!, sum : %d" res_1)
 let thread2 (dict : Dictionary<int, int>) = new Thread (fun () ->
     let sum_2 = ref []
@@ -128,8 +171,8 @@ let thread2 (dict : Dictionary<int, int>) = new Thread (fun () ->
             if sum <= 28123 then sum_2 := sum::(!sum_2)
     sum_2 := lst_distinct(!sum_2)
     lst2 := !sum_2
-    for elem in (!sum_2) do
-        res_2 <- res_2 + int64(elem)
+    //for elem in (!sum_2) do
+    //    res_2 <- res_2 + int64(elem)
     printfn "Thread2 Finished!, sum : %d" res_2)
 let thread3 (dict : Dictionary<int, int>) = new Thread (fun () ->
     let sum_3 = ref []
@@ -139,8 +182,8 @@ let thread3 (dict : Dictionary<int, int>) = new Thread (fun () ->
             if sum <= 28123 then sum_3 := sum::(!sum_3)
     sum_3 := lst_distinct(!sum_3)
     lst3 := !sum_3
-    for elem in (!sum_3) do
-        res_3 <- res_3 + int64(elem)
+    //for elem in (!sum_3) do
+    //    res_3 <- res_3 + int64(elem)
     printfn "Thread3 Finished!, sum : %d" res_3)
 let thread4 (dict : Dictionary<int, int>) = new Thread (fun () ->
     let sum_4 = ref []
@@ -150,8 +193,8 @@ let thread4 (dict : Dictionary<int, int>) = new Thread (fun () ->
             if sum <= 28123 then sum_4 := sum::(!sum_4)
     sum_4 := lst_distinct(!sum_4)
     lst4 := !sum_4
-    for elem in (!sum_4) do
-        res_4 <- res_4 + int64(elem)
+    //for elem in (!sum_4) do
+    //    res_4 <- res_4 + int64(elem)
     printfn "Thread4 Finished!, sum : %d" res_4)
 let thread5 (dict : Dictionary<int, int>) = new Thread (fun () ->
     let sum_5 = ref []
@@ -161,8 +204,8 @@ let thread5 (dict : Dictionary<int, int>) = new Thread (fun () ->
             if sum <= 28123 then sum_5 := sum::(!sum_5)
     sum_5 := lst_distinct(!sum_5)
     lst5 := !sum_5
-    for elem in (!sum_5) do
-        res_5 <- res_5 + int64(elem)
+    //for elem in (!sum_5) do
+    //    res_5 <- res_5 + int64(elem)
     printfn "Thread5 Finished!, sum : %d" res_5)
 let thread6 (dict : Dictionary<int, int>) = new Thread (fun () ->
     let sum_6 = ref []
@@ -172,8 +215,8 @@ let thread6 (dict : Dictionary<int, int>) = new Thread (fun () ->
             if sum <= 28123 then sum_6 := sum::(!sum_6)
     sum_6 := lst_distinct(!sum_6)
     lst6 := !sum_6
-    for elem in (!sum_6) do
-        res_6 <- res_6 + int64(elem)
+    //for elem in (!sum_6) do
+    //    res_6 <- res_6 + int64(elem)
     printfn "Thread6 Finished!, sum : %d" res_6)
 let thread7 (dict : Dictionary<int, int>) = new Thread (fun () ->
     let sum_7 = ref []
@@ -183,8 +226,8 @@ let thread7 (dict : Dictionary<int, int>) = new Thread (fun () ->
             if sum <= 28123 then sum_7 := sum::(!sum_7)
     sum_7 := lst_distinct(!sum_7)
     lst7 := !sum_7
-    for elem in (!sum_7) do
-        res_7 <- res_7 + int64(elem)
+    //for elem in (!sum_7) do
+    //    res_7 <- res_7 + int64(elem)
     printfn "Thread7 Finished!, sum : %d" res_7)
 let thread8 (dict : Dictionary<int, int>) = new Thread (fun () ->
     let sum_8 = ref []
@@ -194,8 +237,8 @@ let thread8 (dict : Dictionary<int, int>) = new Thread (fun () ->
             if sum <= 28123 then sum_8 := sum::(!sum_8)
     sum_8 := lst_distinct(!sum_8)
     lst8 := !sum_8
-    for elem in (!sum_8) do
-        res_8 <- res_8 + int64(elem)
+    //for elem in (!sum_8) do
+    //    res_8 <- res_8 + int64(elem)
     printfn "Thread8 Finished!, sum : %d" res_8)
 
 let thread9 (dict : Dictionary<int, int>) = new Thread (fun () ->
@@ -206,8 +249,8 @@ let thread9 (dict : Dictionary<int, int>) = new Thread (fun () ->
             if sum <= 28123 then sum_9 := sum::(!sum_9)
     sum_9 := lst_distinct(!sum_9)
     lst9 := !sum_9
-    for elem in (!sum_9) do
-        res_9 <- res_9 + int64(elem)
+    //for elem in (!sum_9) do
+    //    res_9 <- res_9 + int64(elem)
     printfn "Thread9 Finished!, sum : %d" res_9)
 
 let thread1_full = (thread1 dict_abundant_1)
@@ -220,7 +263,7 @@ let thread7_full = (thread7 dict_abundant_7)
 let thread8_full = (thread8 dict_abundant_8)
 let thread9_full = (thread8 dict_abundant_9)
 
-thread1_full.Start()
+(*thread1_full.Start()
 thread2_full.Start()
 thread3_full.Start()
 thread4_full.Start()
@@ -248,7 +291,7 @@ thread5_full.Abort()
 thread6_full.Abort()
 thread7_full.Abort()
 thread8_full.Abort()
-thread9_full.Abort()
+thread9_full.Abort()*)
 //let sum_of_two_abundants = ref []
 //for i=0 to dict_abundant.Count-1 do
 //    for j=i to dict_abundant.Count-1 do
@@ -257,12 +300,17 @@ thread9_full.Abort()
 
 //let answer = List.sum (!sum_of_two_abundants)
 
-let total_lst = List.sum(lst_distinct(List.append !lst9 (List.append (List.append (List.append !lst1 !lst2) (List.append !lst3 !lst4)) (List.append (List.append !lst5 !lst6) (List.append !lst7 !lst8)))))
+(*let total_lst = List.sum(lst_distinct(List.append !lst9 (List.append (List.append (List.append !lst1 !lst2) (List.append !lst3 !lst4)) (List.append (List.append !lst5 !lst6) (List.append !lst7 !lst8)))))
 
-printfn "total_lst_sum : %d" total_lst
+printfn "total_lst_sum : %d" total_lst*)
 
-let answer = ((28123 * 28124)/2) - total_lst
+(hash_op test_hash lst_dict)
+let mutable res = 0
+for i=1 to 28123 do
+    if test_hash.Contains(i) then res <- res+i
+let answer = ((28123 * 28124)/2) - res
 
 sw.Stop()
 printfn "Answer : %d" answer
 printfn "Elapsed Time : %f" sw.Elapsed.TotalMilliseconds
+
