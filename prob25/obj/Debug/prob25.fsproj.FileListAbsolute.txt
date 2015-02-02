@@ -1,0 +1,10 @@
+E:\F#\project_euler\prob25\bin\Debug\prob25.exe.config
+E:\F#\project_euler\prob25\bin\Debug\prob25.XML
+E:\F#\project_euler\prob25\bin\Debug\prob25.exe
+E:\F#\project_euler\prob25\bin\Debug\prob25.pdb
+E:\F#\project_euler\prob25\bin\Debug\FSharp.Core.dll
+E:\F#\project_euler\prob25\bin\Debug\FSharp.Core.xml
+E:\F#\project_euler\prob25\bin\Debug\ko\FSharp.Core.resources.dll
+E:\F#\project_euler\prob25\obj\Debug\prob25.fsprojResolveAssemblyReference.cache
+E:\F#\project_euler\prob25\obj\Debug\prob25.exe
+E:\F#\project_euler\prob25\obj\Debug\prob25.pdb

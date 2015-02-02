@@ -5,12 +5,12 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>8dcc9be2-efa2-4c1c-8081-848754280d15</ProjectGuid>
+    <ProjectGuid>3d5b1bdf-b9bc-466d-88a7-f15fe65fe65b</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>prob25</RootNamespace>
-    <AssemblyName>prob25</AssemblyName>
+    <RootNamespace>prob26</RootNamespace>
+    <AssemblyName>prob26</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <Name>prob25</Name>
+    <Name>prob26</Name>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,7 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <WarningLevel>3</WarningLevel>
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <DocumentationFile>bin\Debug\prob25.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\prob26.XML</DocumentationFile>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -32,7 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <WarningLevel>3</WarningLevel>
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <DocumentationFile>bin\Release\prob25.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\prob26.XML</DocumentationFile>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
@@ -41,7 +41,7 @@
   <Import Project="$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets" Condition=" Exists('$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets')" />
   <ItemGroup>
     <None Include="App.config" />
-    <Compile Include="prob25.fs" />
+    <Compile Include="prob26.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
