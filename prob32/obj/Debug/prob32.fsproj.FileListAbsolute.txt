@@ -1,0 +1,9 @@
+D:\F#\Project_Euler\prob32\bin\Debug\prob32.exe.config
+D:\F#\Project_Euler\prob32\bin\Debug\prob32.XML
+D:\F#\Project_Euler\prob32\bin\Debug\prob32.exe
+D:\F#\Project_Euler\prob32\bin\Debug\prob32.pdb
+D:\F#\Project_Euler\prob32\bin\Debug\FSharp.Core.dll
+D:\F#\Project_Euler\prob32\bin\Debug\FSharp.Core.xml
+D:\F#\Project_Euler\prob32\bin\Debug\ko\FSharp.Core.resources.dll
+D:\F#\Project_Euler\prob32\obj\Debug\prob32.exe
+D:\F#\Project_Euler\prob32\obj\Debug\prob32.pdb
