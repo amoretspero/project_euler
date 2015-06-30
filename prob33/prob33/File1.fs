@@ -63,9 +63,34 @@ type frac (numerator : int, denominator : int) =
             curr_numerator <- curr_numerator/n
             curr_denominator <- curr_denominator/n
 
+    member f.string_notation() =
+        curr_numerator.ToString() + "/" + curr_denominator.ToString()
+    
+    member f.ToFloat() =
+        (float)curr_numerator / (float)curr_denominator
+
 let fracs_found = new HashSet<frac>()
 
 for i=11 to 99 do
-    for j=i-1 to 99 do
-        let curr_frac = frac(j, i)
-        let incorr_frac = frac()
+    for j=10 to i-1 do
+        if (i%10 <> 0) && (j%10 <> 0) then
+            let curr_frac = frac(j, i)
+            let incorr_frac1 = frac(j/10, i/10)
+            let incorr_frac2 = frac(j/10, i%10)
+            let incorr_frac3 = frac(j%10, i/10)
+            let incorr_frac4 = frac(j%10, i%10)
+            
+            if curr_frac.ToFloat() = incorr_frac1.ToFloat() && j%10 = i%10 then
+                printfn "curr_frac : %s, incorr_frac1 : %s" (curr_frac.string_notation()) (incorr_frac1.string_notation())
+                fracs_found.Add(curr_frac) |> ignore
+            else if curr_frac.ToFloat() = incorr_frac2.ToFloat() && j%10 = i/10 then
+                printfn "curr_frac : %s, incorr_frac2 : %s" (curr_frac.string_notation()) (incorr_frac2.string_notation())
+                fracs_found.Add(curr_frac) |> ignore
+            else if curr_frac.ToFloat() = incorr_frac3.ToFloat() && j/10 = i%10 then
+                printfn "curr_frac : %s, incorr_frac3 : %s" (curr_frac.string_notation()) (incorr_frac3.string_notation())
+                fracs_found.Add(curr_frac) |> ignore
+            else if curr_frac.ToFloat() = incorr_frac4.ToFloat() && j/10 = i/10 then
+                printfn "curr_frac : %s, incorr_frac4 : %s" (curr_frac.string_notation()) (incorr_frac4.string_notation())
+                fracs_found.Add(curr_frac) |> ignore
+
+printfn "fracs_found.Count : %d" fracs_found.Count
