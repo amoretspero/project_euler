@@ -36,4 +36,4 @@ for cnt=p_start to p_end do
         ans <- res
         ans_p <- cnt
 sw.Stop()
-printfn "Maximum number of solutions (at p = %d) : %d - Elapsed Time : %d" ans_p ans sw.ElapsedMilliseconds
+printfn "Maximum number of solutions (at p = %d) : %d - Elapsed Time : %d(ms)" ans_p ans sw.ElapsedMilliseconds

@@ -1,10 +1,10 @@
 Project Euler
 
-After problems are solved, all codes should be in this repository.
+After problems are solved, all codes will be in this repository.
 
-F# practice is 1st goal, so all codes will be written in F#.
+Language : F#
 
 Current Status : 
-	Problem 1 ~ Problem 32 -> Solved
-	Problem 33 -> Solving
-	Problem 23, 32 -> Need to be more efficient
+	Problem 1 ~ Problem 41 -> Solved
+	Problem 23, 32, 37, 41 -> Need to be more efficient
+	Problem 37, 41 -> May need threading

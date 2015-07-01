@@ -10,26 +10,36 @@ open System.Numerics
 
 let prime_set = new HashSet<int>()
 
+let mutable prime_gen_gap = -1
+
 let mutable prime_set_end = 0
 
 let prime_gen (n : int) =
+    printfn "Generating prime to %d" n
     prime_set_end <- n
     for i=2 to n do
         if i=2 then
             prime_set.Add(i) |> ignore
         else if i%2<>0 then
             let mutable res = true
-            for elem in prime_set do
+            let mutable cnt = 0
+            let mutable loop_break = false
+            let n_square_root = Convert.ToInt32(System.Math.Sqrt(float n))
+            while cnt < prime_set.Count && (not loop_break) do
+                let elem = prime_set.ElementAt(cnt)
                 if i%elem = 0 then
                     res <- false
                 else
                     res <- res
+                if n_square_root < elem then
+                    loop_break <- true
+                cnt <- cnt + 1
             if res then
                 prime_set.Add(i) |> ignore
 
 let rec check_truncate_prime (n : int) =
     if prime_set_end < n then
-        prime_gen(n)
+        prime_gen(prime_set_end + prime_gen_gap)
     if prime_set.Contains(n) && n > 7 then
         let mutable res = true
         let digit = n.ToString().Length
@@ -52,6 +62,8 @@ let mutable num_of_truncate_primes = -1
 
 printfn "Insert number of truncate primes to find(MAX : 11)"
 num_of_truncate_primes <- Convert.ToInt32(Console.ReadLine())
+printfn "Insert prime number generation gap : "
+prime_gen_gap <- Convert.ToInt32(Console.ReadLine())
 if num_of_truncate_primes > 11 then
     printfn "Adjusting your input to 11"
     num_of_truncate_primes <- 11
