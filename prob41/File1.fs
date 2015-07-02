@@ -95,3 +95,7 @@ let check_digits (n : int) =
     sw_cd.Stop()
     printfn "Checking pandigitality and primality for %d-digit numbers done. Elapsed Time : %d(ms)" n sw_cd.ElapsedMilliseconds
     res
+
+(*
+    Answer would appear with check_digits with n=7
+*)
