@@ -5,7 +5,8 @@ After problems are solved, all codes will be in this repository.
 Language : F#
 
 Current Status : 
-	Problem 1 ~ Problem 45 -> Solved
+	Problem 1 ~ Problem 46 -> Solved
+	Problem 47 -> Solving
 	Problem 23, 32, 37, 41 -> Need to be more efficient
 	Problem 37, 41 -> May need threading
 	Problem 41, 44 -> Cannot operate the full search for all possibility.
