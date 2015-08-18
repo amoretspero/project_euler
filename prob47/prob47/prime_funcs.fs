@@ -9,9 +9,13 @@ open System.Linq
 open System.Numerics
 
 type prime_factor(basis : int, exp : int) =
-    member val basis = basis with get, set
-    member val exp = exp with get, set
-    override pf.ToString() = basis.ToString() + "^" + exp.ToString()
+    let mutable curr_basis = basis
+    let mutable curr_exp = exp
+
+    member pf.basis with get() = curr_basis and set v = curr_basis <- v
+    member pf.exp with get() = curr_exp and set v = curr_exp <- v
+
+    override pf.ToString() = curr_basis.ToString() + "^" + curr_exp.ToString()
     
 
 /// prime_gen : This function generates primes less than or equal to n, 

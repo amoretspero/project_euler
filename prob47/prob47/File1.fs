@@ -42,23 +42,37 @@ let check_prime_factor (n : int) (lst : prime_factor list) =
     let pf_res = prime_factor_mult 1 lst
     if n <> pf_res then false else true
 
+let rec list_copy (lst : 'a list) =
+    let res = ref ([] : 'a list)
+    for i=0 to lst.Length-1 do
+        res.Value <- List.append res.Value [lst.[i]]
+    res.Value
+
 let factored_set = new System.Collections.Hashtable()
 
 let prime_factor_adder (factor : int) (exp : int) (lst : prime_factor list) =
-    let lst_copied = List.foldBack (fun elem acc -> elem::acc) lst []
+    //let lst_copied = List.foldBack (fun elem acc -> elem::acc) lst []
+    //let lst_copied = list_copy lst
     let mutable cnt = 0
-    let mutable loop_break = false
-    while (cnt < lst_copied.Length) && (not loop_break) do
-        if (lst_copied.[cnt].basis = factor) then
-            lst_copied.[cnt].exp <- lst_copied.[cnt].exp + exp
+    let mutable loop_break = false 
+    let res = ref ([] : prime_factor list)
+    while (cnt < lst.Length) do
+        if (lst.[cnt].basis = factor) then
+            //lst.[cnt].exp <- lst.[cnt].exp + exp
+            //loop_break <- true
+            res.Value <- List.append res.Value [prime_factor(lst.[cnt].basis, lst.[cnt].exp+exp)]
             loop_break <- true
+        else
+            res.Value <- List.append res.Value [prime_factor(lst.[cnt].basis, lst.[cnt].exp)]
         cnt <- cnt + 1
-    let res = 
+    if (not loop_break) then
+        res.Value <- List.append res.Value [prime_factor(factor, exp)]
+    (*let res = 
         if (not loop_break) then
             List.append lst_copied [prime_factor(factor, exp)]
         else
-            lst_copied
-    res
+            lst_copied*)
+    res.Value
 
 printfn "Data Initialization Done!\n"
 
@@ -70,8 +84,7 @@ prime_gen_sw.Stop()
 printfn "Prime generation to %d Done! (Elapsed Time : %fms)\n" prime_num_insert prime_gen_sw.Elapsed.TotalMilliseconds
 
 /// find_prime_factors : given an integer, find its prime_factors and returns them as prime_factor list
-let find_prime_factors (n : int) =
-    //let sqrt_n = Convert.ToInt32(System.Math.Sqrt((float n)))
+let find_prime_factors(n : int) =
     let sqrt_n = n/2 + 1
     let mutable num = n
     let mutable cnt = 0
@@ -80,19 +93,15 @@ let find_prime_factors (n : int) =
     while (num > 1)&&(not loop_break)&&(cnt < prime_set.Count) do
         let elem = prime_set.ElementAt(cnt)
         let mutable exp = 0
-        while (num > 1)&&(num%elem = 0) do
+        while (num > 1)&&(num%elem = 0)&&(not loop_break) do
             num <- num/elem
-            exp <- exp + 1
-        if factored_set.ContainsKey(num) then
-            let prev_pf = unbox (factored_set.Item(num))
-            ans.Value <- prime_factor_adder elem exp prev_pf
-            loop_break <- true
-        else
-            if exp <> 0 then
-                ans.Value <- List.append ans.Value [prime_factor(elem, exp)]
-            //if (prime_set.ElementAt(cnt + 1) > sqrt_n)||(num=1) then
-            if (elem > sqrt_n) || (num=1) then
+            exp <- exp+1
+            if (num > 1) then
+                let prev_pf = unbox (factored_set.Item(num))
+                ans.Value <- prime_factor_adder elem exp prev_pf
                 loop_break <- true
+        if (elem > sqrt_n) || (num = 1) then
+            loop_break <- true
         cnt <- cnt + 1
     if ans.Value.Length = 0 then
         ans.Value <- [prime_factor(n, 1)]
@@ -113,3 +122,35 @@ for i=2 to prime_factor_insert do
     //printfn "Check correctness : %s" (pf_check.ToString())
 prime_factor_sw.Stop()
 printfn "Prime factor generation Done! (Elapsed Time : %fms) (Error : %d)\n" prime_factor_sw.Elapsed.TotalMilliseconds error_count
+
+let check_ans_sw = new Stopwatch()
+let mutable ans = -1
+let check_ans () =
+    let mutable cnt = 2
+    let mutable loop_break = false
+    let pf1 = ref ([] : prime_factor list)
+    let pf2 = ref ([] : prime_factor list)
+    let pf3 = ref ([] : prime_factor list)
+    let pf4 = ref ([] : prime_factor list)
+    while (cnt < prime_factor_insert - 3) && (not loop_break) do
+        pf1.Value <- pf2.Value
+        pf2.Value <- pf3.Value
+        pf3.Value <- pf4.Value
+        pf4.Value <- unbox (factored_set.Item(cnt))
+        if pf1.Value.Length = 4 then
+            if pf2.Value.Length = 4 then
+                if pf3.Value.Length = 4 then
+                    if pf4.Value.Length = 4 then
+                        let temp = (List.append (List.append pf1.Value pf2.Value) pf3.Value).Distinct()
+                        if temp.Count() = 16 then
+                            ans <- cnt-3
+                            loop_break <- true
+        cnt <- cnt + 1
+
+check_ans_sw.Start()
+check_ans()
+check_ans_sw.Stop()
+if ans <> -1 then
+    printfn "Answer found : %d %d %d %d (Elapsed Time : %fms)\n" ans (ans + 1) (ans + 2) (ans + 3) check_ans_sw.Elapsed.TotalMilliseconds
+else
+    printfn "Answer not found (Elapsed Time : %fms)\n" check_ans_sw.Elapsed.TotalMilliseconds
