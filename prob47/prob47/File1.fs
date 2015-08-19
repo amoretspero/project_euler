@@ -79,6 +79,7 @@ printfn "Data Initialization Done!\n"
 let prime_gen_sw = new Stopwatch()
 prime_gen_sw.Start()
 prime_gen prime_num_insert prime_set_end prime_set
+let prime_lst = prime_set.ToList()
 prime_gen_sw.Stop()
 
 printfn "Prime generation to %d Done! (Elapsed Time : %fms)\n" prime_num_insert prime_gen_sw.Elapsed.TotalMilliseconds
@@ -91,7 +92,8 @@ let find_prime_factors(n : int) =
     let mutable loop_break = false
     let ans = ref ([] : prime_factor list)
     while (num > 1)&&(not loop_break)&&(cnt < prime_set.Count) do
-        let elem = prime_set.ElementAt(cnt)
+        //let elem = prime_set.ElementAt(cnt)
+        let elem = prime_lst.[cnt]
         let mutable exp = 0
         while (num > 1)&&(num%elem = 0)&&(not loop_break) do
             num <- num/elem
