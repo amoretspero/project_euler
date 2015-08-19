@@ -38,9 +38,24 @@ let rec prime_factor_mult (n : int) (lst : prime_factor list) =
     | h :: t ->
         prime_factor_mult (n * (int (System.Math.Pow(float h.basis, float h.exp)))) t
 
+let sort_func = (fun (x : prime_factor) (y : prime_factor) -> 
+                    if x.basis > y.basis then 1 
+                    else if x.basis < y.basis then 0 
+                    else 
+                        if x.exp >= y.exp then 1
+                        else 0)
+
 let check_prime_factor (n : int) (lst : prime_factor list) =
+    //let sorted_lst = List.sortWith sort_func lst
+    let basis_lst = (List.map (fun (x : prime_factor) -> x.basis) lst).Distinct()
     let pf_res = prime_factor_mult 1 lst
-    if n <> pf_res then false else true
+    if n <> pf_res then 
+        false 
+    else 
+        if basis_lst.Count() <> lst.Count() then
+            false
+        else
+            true
 
 let rec list_copy (lst : 'a list) =
     let res = ref ([] : 'a list)
@@ -143,7 +158,7 @@ let check_ans () =
             if pf2.Value.Length = 4 then
                 if pf3.Value.Length = 4 then
                     if pf4.Value.Length = 4 then
-                        let temp = (List.append (List.append pf1.Value pf2.Value) pf3.Value).Distinct()
+                        let temp = (List.append (List.append (List.append pf1.Value pf2.Value) pf3.Value) pf4.Value).Distinct()
                         if temp.Count() = 16 then
                             ans <- cnt-3
                             loop_break <- true
@@ -156,3 +171,17 @@ if ans <> -1 then
     printfn "Answer found : %d %d %d %d (Elapsed Time : %fms)\n" ans (ans + 1) (ans + 2) (ans + 3) check_ans_sw.Elapsed.TotalMilliseconds
 else
     printfn "Answer not found (Elapsed Time : %fms)\n" check_ans_sw.Elapsed.TotalMilliseconds
+
+(*
+===================
+Answer : 134043
+Elapsed Time : 
+    Prime generation : 240.191600ms (Input : 200000)
+    Prime factor generation : 1498.968900ms (Input : 200000) (Error : 0)
+    Answer search : 8.129500ms
+System : 
+    CPU : i7-4790K (4.0GHz - Turbo 4.4GHz)
+    RAM : DDR3-12800, 16GB @1600MHz
+    GPU : AMD RADEON 290X
+===================
+*)
