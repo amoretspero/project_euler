@@ -65,5 +65,17 @@ find_ans_sw.Stop()
 printfn "Finding answer to limit of %d done.\nAnswer : %d (Elapsed Time : %fms)" answer_limit res find_ans_sw.Elapsed.TotalMilliseconds
 
 (*
+===================
 Answer : 997651
+Input :
+    prime_set_limit : 1000000
+    answer_limit : 1000000
+Elapsed Time : 
+    Prime generation : 3155.481400ms
+    Answer search : 13564.770300ms
+System :
+    CPU : i7-4790K (4.0GHz - Turbo 4.4GHz)
+    RAM : DDR3-12800, 16GB @1600MHz
+    GPU : AMD RADEON 290X
+===================
 *)

@@ -98,3 +98,20 @@ while cnt < prime_lst_len && (not while_break) do
     cnt <- cnt + 1
 find_ans_sw.Stop()
 printfn "Finding answer done. (Elapsed Time : %fms)" find_ans_sw.Elapsed.TotalMilliseconds
+
+(*
+===================
+Answer : 121313
+Input :
+    prime_set_limit : 1000000
+    number_of_primes : 8
+    check_limit : 1000000
+Elapsed Time : 
+    Prime generation : 3187.085600ms
+    Answer search : 2415.175300ms
+System :
+    CPU : i7-4790K (4.0GHz - Turbo 4.4GHz)
+    RAM : DDR3-12800, 16GB @1600MHz
+    GPU : AMD RADEON 290X
+===================
+*)

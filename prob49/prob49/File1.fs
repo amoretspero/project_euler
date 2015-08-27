@@ -83,3 +83,19 @@ find_answer insert_digit
 find_answer_sw.Stop()
 
 printfn "Finding answer for %d digit numbers done! (Elapsed Time : %fms)" insert_digit find_answer_sw.Elapsed.TotalMilliseconds
+
+(*
+===================
+Answer : 2969
+Input : 
+    prime_gen_limit : 10000
+    insert_digit : 4
+Elapsed Time :
+    Prime generation : 4.065700ms
+    Answer search : 229.375800ms
+System :
+    CPU : i7-4790K (4.0GHz - Turbo 4.4GHz)
+    RAM : DDR3-12800, 16GB @1600MHz
+    GPU : AMD RADEON 290X
+===================
+*)

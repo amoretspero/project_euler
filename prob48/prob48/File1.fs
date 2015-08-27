@@ -38,6 +38,8 @@ printfn "Answer : %d (Elapsed Time : %f ms)" ans ans_sw.Elapsed.TotalMillisecond
 (*
 ===================
 Answer : 9110846700
+Input :
+    num_insert : 1000
 Elapsed Time : 
     Answer search : 957.394100ms
 System : 
