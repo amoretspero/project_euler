@@ -29,13 +29,14 @@ printfn "Insert answer_limit :"
 answer_limit <- System.Convert.ToInt32(System.Console.ReadLine())
 
 let prime_lst = List.ofSeq(prime_set.ToList())
+let prime_lst_len = prime_lst.Length
 
 let find_ans (limit : int) (cnt_start : int) =
     let mutable ans = 0
     let mutable len = 0
     let mutable prime_sum = 0
     let mutable cnt = cnt_start
-    while ans < limit && cnt < prime_lst.Length do
+    while ans < limit && cnt < prime_lst_len && prime_sum < limit do
         prime_sum <- prime_sum + prime_lst.[cnt]
         cnt <- cnt + 1
         if prime_set.Contains(prime_sum) then
@@ -47,7 +48,7 @@ let find_ans_total (limit : int) =
     let mutable cnt = 0
     let mutable len = 0
     let mutable ans = 0
-    while cnt < prime_lst.Length && prime_lst.[cnt] < limit do
+    while cnt < prime_lst_len && prime_lst.[cnt] < limit do
         let temp = find_ans limit cnt
         if temp.[1] > len then
             ans <- temp.[0]
@@ -55,9 +56,14 @@ let find_ans_total (limit : int) =
         cnt <- cnt + 1
     ans
 
+
 printfn "\nNow finding answer.\n"
 let find_ans_sw = new Stopwatch()
 find_ans_sw.Start()
 let res = find_ans_total answer_limit
 find_ans_sw.Stop()
 printfn "Finding answer to limit of %d done.\nAnswer : %d (Elapsed Time : %fms)" answer_limit res find_ans_sw.Elapsed.TotalMilliseconds
+
+(*
+Answer : 997651
+*)
